@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="signup-page">
+    <h1><%= title %></h1>
+    <form method="post" action="">
+        <div class="form-item">
+            <label for="firstname">First Name: </label>
+            <input type="text" class="form-input" id="firstname" name="firstname" placeholder="John" required="true">
+        </div>
+        <div class="form-item">
+            <label for="lastname">Last Name: </label>
+            <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Smith" required="true">
+        </div>
+        <div class="form-item">
+            <label for="username">Username: </label>
+            <input type="email" class="form-input" id="username" name="username" placeholder="me@gmail.com" required="true">
+        </div>
+        <div class="form-item">
+            <label for="password">Password: </label>
+            <input type="password" class="form-input" id="password" name="password" required="true">
+        </div>
+        <div class="form-item">
+            <label for="confirm">Confirm Password: </label>
+            <input type="password" class="form-input" id="confirm" name="confirm" required="true">
+        </div>
+        <button class="form-button">Add User</button>
+    </form>
+    <% if (errors !== undefined) { %>
+      <ul>
+        <% for (error in errors) { %>
+          <li class="errors"><%= error %></li>
+        <% } %>
+      </ul>
+    <% } %>
+  </body>
+</html>
