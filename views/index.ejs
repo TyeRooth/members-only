@@ -10,6 +10,9 @@
     <% if (user) { %>
       <h1>Welcome <%= user.first_name %></h1>
       <a href="/log-out">Log Out</a>
+      <% if (!user.member) { %>
+        <a href="/member">Become a member</a>
+      <% } %>
     <% } %>
   </body>
 </html>

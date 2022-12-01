@@ -10,6 +10,10 @@
         <p>To become a member, please type in the correct answer for the following math problem.</p>
         <p>23 x 46 + (32 / 8) ^ 2 - 32 x 32</p>
         <input class="form-input" type="number" name="answer" required placeholder="50">
+        <button class="form-button">Submit</button>
+        <% if (undefined!==error) { %>
+          <p><%= error %></p>
+        <% } %>
     </form>
   </body>
 </html>

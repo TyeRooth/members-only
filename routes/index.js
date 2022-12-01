@@ -26,5 +26,6 @@ router.get('/log-out', (req, res, next) => {
 });
 
 router.get('/member', memberController.member_get);
+router.post('/member', memberController.member_post);
 
 module.exports = router;
