@@ -44,7 +44,8 @@ exports.signup_post = [
                 last_name: req.body.lastname,
                 username: req.body.username,
                 password: hashedPassword,
-                membership_status: "Non-member",
+                member: false,
+                admin: false,
             });
     
             if (!errors.isEmpty()) {

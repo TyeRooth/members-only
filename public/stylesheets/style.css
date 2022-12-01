@@ -1,6 +1,11 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  background-color: black;
 }
 
 a {
@@ -10,6 +15,10 @@ a {
 h1 {
   font-size: 3rem;
   color: white
+}
+
+p {
+  color: white;
 }
 
 .signup-page {
@@ -28,8 +37,13 @@ form {
   gap: 30px;
   padding: 30px;
   background-color: greenyellow;
-  border-radius: 4%;
+  border-radius: 20px;
   height: max-content;
+}
+
+form>p {
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .form-item {
