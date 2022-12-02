@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="signup-page">
+    <h1><%= title %></h1>
+    <form method="post" action="">
+        <label for="message" class="message-header">Message:</label>
+        <textarea id="message" name="message" placeholder="What's up Doc!" required="true"></textarea>
+        <button class="form-button">Post Message</button>
+    </form>
+    <% if (errors !== undefined) { %>
+      <ul>
+        <% for (error in errors) { %>
+          <li class="errors"><%= error %></li>
+        <% } %>
+      </ul>
+    <% } %>
+  </body>
+</html>

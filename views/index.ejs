@@ -4,15 +4,37 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
+  <body class="homepage">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p class="site-description">Not logged in, you get to view messages.  Nothing else!</p>
+    <p class="site-description">Logged in but not a member, you get to post messages but still can't see the authors and dates of other messages.</p>
+    <p class="site-description">You're a member, cool! You get to see all the details of these messages now.</p>
+    <p class="site-description">Only the admins of this site can delete things.  Remember the internet is forever.</p>
     <% if (user) { %>
-      <h1>Welcome <%= user.first_name %></h1>
-      <a href="/log-out">Log Out</a>
-      <% if (!user.member) { %>
-        <a href="/member">Become a member</a>
+      <h2>Welcome <%= user.first_name %></h2>
+      <% if (user.member) { %>
+        <p class="site-description">You are a member! Or in other words, one of the cool kids.</p>
       <% } %>
+      <div class="user-links-container">
+        <a href="/log-out">Log Out</a>
+        <% if (!user.member) { %>
+          <a href="/member">Become a member</a>
+        <% } %>
+      </div>
+    <% } else { %>
+      <div class="user-links-container">
+        <a href='/log-in'>Log-In</a>
+        <a href="/sign-up">Sign-Up</a>
+      </div>"
     <% } %>
+    <h2>Messages</h2>
+    <% if (user) { %>
+      <a href="/message" class="new-message-link">Post a new message</a>
+    <% } %>
+    <div class="messages-container">
+      <% for (let i = 0; i < messages; i++) { %>
+        <p>Message</p>
+      <% } %>
+    </div>
   </body>
 </html>

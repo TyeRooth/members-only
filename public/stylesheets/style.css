@@ -1,10 +1,6 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 100px;
   background-color: black;
 }
 
@@ -17,8 +13,45 @@ h1 {
   color: white
 }
 
+h2 {
+  font-size: 2.5rem;
+  color: white;
+}
+
 p {
   color: white;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-description {
+  font-size: 1rem;
+}
+
+.user-links-container {
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.user-links-container>a,
+.new-message-link {
+  font-size: 2rem;
+  text-decoration: none;
+  color: greenyellow;
+}
+
+.create-message-button {
+  font-size: 2rem;
+  background-color: greenyellow;
+  color: black;
+  padding: 10px 30px;
+  width: max-content;
+  cursor: pointer;
 }
 
 .signup-page {
@@ -41,10 +74,17 @@ form {
   height: max-content;
 }
 
-form>p {
+form>p,
+.message-header {
   font-size: 1.5rem;
   text-align: center;
   color: black;
+}
+
+textarea {
+  width: 600px;
+  height: 200px;
+  font-size: 1.5rem;
 }
 
 .form-item {
@@ -63,6 +103,7 @@ form>p {
 .form-button {
   background-color: white;
   width: 40%;
+  min-width: max-content;
   padding: 10px;
   font-size: 1.5rem;
   border-radius: 10px;
