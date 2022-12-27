@@ -32,8 +32,19 @@
       <a href="/message" class="new-message-link">Post a new message</a>
     <% } %>
     <div class="messages-container">
-      <% for (let i = 0; i < messages; i++) { %>
-        <p>Message</p>
+      <% for (let i = 0; i < messages.length; i++) { %>
+        <div class="message-div">
+          <div class="message-data">
+            <% if (user && user.member) { %>
+              <p><%= messages[i].user.first_name + " " + messages[i].user.last_name %></p>
+              <p><%= messages[i].date %></p>
+            <% } else { %>
+              <p>Someone</p>
+              <p>Sometime</p>
+            <% } %>
+          </div>
+          <p><%= messages[i].text %></p>
+        </div>
       <% } %>
     </div>
   </body>

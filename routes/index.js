@@ -10,7 +10,7 @@ const Messages = require('../models/message');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Messages.find({}, (err, messages) => {
+  Messages.find().populate('user').exec((err, messages) => {
     if (err) {
       return next(err);
     }
@@ -37,5 +37,6 @@ router.get('/member', memberController.member_get);
 router.post('/member', memberController.member_post);
 
 router.get('/message', messageController.message_get);
+router.post('/message', messageController.message_post);
 
 module.exports = router;

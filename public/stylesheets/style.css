@@ -110,6 +110,34 @@ textarea {
   cursor: pointer;
 }
 
+.messages-container {
+  margin-top: 30px;
+}
+
+.message-div {
+  background-color: greenyellow;
+  padding: 10px;
+  width: 250px;
+  border-radius: 8%;
+}
+
+.message-data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.message-data>p {
+  color: black;
+  margin: 0px;
+  font-size: 1.5rem;
+}
+
+.message-div>p {
+  color: black;
+  font-size: 1.2rem;
+}
+
 ul {
   list-style: none;
 }

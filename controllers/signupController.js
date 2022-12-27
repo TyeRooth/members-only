@@ -60,7 +60,7 @@ exports.signup_post = [
                     if (err) {
                         return next(err);
                     }
-                    res.redirect("/")
+                    res.redirect("/log-in")
                 });
             }
         });
