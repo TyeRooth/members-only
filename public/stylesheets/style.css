@@ -112,6 +112,9 @@ textarea {
 
 .messages-container {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .message-div {
