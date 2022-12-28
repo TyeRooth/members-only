@@ -3,6 +3,7 @@ var router = express.Router();
 
 const signupController = require('../controllers/signupController');
 const memberController = require('../controllers/memberController');
+const adminController = require('../controllers/adminController');
 const loginController = require('../controllers/loginController');
 const messageController = require('../controllers/messageController');
 
@@ -16,6 +17,15 @@ router.get('/', function(req, res, next) {
     }
     res.render('index', { title: 'Members-Only', user: req.user, messages });
   })
+});
+
+router.post('/', function(req, res, next) {
+  Messages.findByIdAndRemove(req.body.messageid, (err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
 });
 
 router.get('/sign-up', signupController.signup_get);
@@ -35,6 +45,9 @@ router.get('/log-out', (req, res, next) => {
 
 router.get('/member', memberController.member_get);
 router.post('/member', memberController.member_post);
+
+router.get('/admin', adminController.admin_get);
+router.post('/admin', adminController.admin_post);
 
 router.get('/message', messageController.message_get);
 router.post('/message', messageController.message_post);

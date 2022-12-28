@@ -12,11 +12,16 @@
     <p class="site-description">Only the admins of this site can delete things.  Remember the internet is forever.</p>
     <% if (user) { %>
       <h2>Welcome <%= user.first_name %></h2>
-      <% if (user.member) { %>
+      <% if (user.admin) { %>
+      <p class="site-description">You are an admin, delete away!</p>
+      <% } else if (user.member) { %>
         <p class="site-description">You are a member! Or in other words, one of the cool kids.</p>
       <% } %>
       <div class="user-links-container">
         <a href="/log-out">Log Out</a>
+        <% if (!user.admin) { %>
+          <a href="/admin">Become an admin</a>
+        <% } %>
         <% if (!user.member) { %>
           <a href="/member">Become a member</a>
         <% } %>
@@ -44,6 +49,12 @@
             <% } %>
           </div>
           <p><%= messages[i].text %></p>
+          <% if (user && user.admin) { %>
+            <form action="" method="post">
+              <input type="hidden" name="messageid" value=<%= messages[i]._id %> >
+              <button type="submit">Delete</button>
+            </form>
+          <% } %>
         </div>
       <% } %>
     </div>
